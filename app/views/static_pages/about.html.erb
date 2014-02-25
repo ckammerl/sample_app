@@ -1,4 +1,10 @@
+<%# Rails should call the provide function (method) and associate the string "About Us" with the label (variable) ':title' %>
+<%# ':title' is a variable part of the page titles (Home, About Us, etc) %>
+<%# The required info on "!Doctype" and "head" are specified in views/layout/application.html.erb; the provide function below just tells the application.html.erb file : for this page yield the title "About Us" %>
+
 <% provide(:title, 'About Us') %>
+
+<%# The following is the individual <body> part of this page, ie here "About us" %>
 <h1>About Us</h1>
 <p>
   The <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>

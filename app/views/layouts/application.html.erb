@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
+
+<%-# following head: the individual :title - as indicated in the indiviual static_page view .erb file - will be yielded, ie. inserted-%>
 <head>
- <title>Ruby on Rails Tutorial Sample App | <%= yield(:title) %></title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag "application", media: "all",
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
 
-<%= yield %>
+<%- #The effect of following line is to look for a file called app/views/layouts/_shim.html.erb, evaluate its contents, and insert the results into the view (HTML5 for IE < version 9)-%>
+    <%= render 'layouts/shim' %>
+  </head>
 
-</body>
+  <body>
+  	<%= render 'layouts/header' %>
+    <div class="container">
+    	<%- # the individual content of this body part is indicated in the individual static_page view .erb files -%>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+  </body>
 </html>
+
+

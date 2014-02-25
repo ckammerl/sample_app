@@ -1,0 +1,16 @@
+<%# Here the header tag indicates elements that should go at the top of the page. We’ve given the header tag three CSS classes, called navbar, navbar-fixed-top, and navbar-inverse, separated by spaces %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+        	<%#  use the Rails helper 'link_to' to create links; the first argument to 'link_to' is the link text, while the second is the URL (can be stubbed with #); The third argument is an 'options hash', in this case adding the CSS id logo to the sample app link. %>	
+          <%= link_to "sample app", root_path, id: "logo" %>
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "Home",    root_path %></li>
+              <li><%= link_to "Help",    help_path %></li>
+              <li><%= link_to "Sign in", '#' %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
